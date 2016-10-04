@@ -2,6 +2,7 @@
 class Pokemon extends CI_Controller{
 
     public function __construct(){
+        parent::__construct();
         $this->load->model('pokemon_model'); // load model 'pokemon_model'
     }
 
@@ -10,6 +11,8 @@ class Pokemon extends CI_Controller{
     public function index(){
         // TODO: dapatkan hasil dari fungsi get_all di pokemon_model
         // TODO: load view pokemon_index, berikan data yang didapat dari fungsi get_all
+        $data = array('list'=>$this->pokemon_model->get_all());
+        $this->load->view('pokemon_index',$data);
     }
 
     // URL : http://localhost/[directory]/index.php/pokemon/insert_form

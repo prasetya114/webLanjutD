@@ -1,18 +1,22 @@
 <h1>Data Pokemon</h1>
-<?php echo "<a href=;>Add</a>" ?>
+
+<a href="<?php echo site_url('/pokemon/insert_form'); ?>">Add Data</a>
 
 	<table id='tabel' border='1'>
-							<tr>
-								<th>Nama</th>
-								<th>Tipe</th>
-								<th>Aksi</th>
-							</tr>
+			<tr>
+				<th>Nama</th>
+				<th>Tipe</th>
+				<th>Aksi</th>
+			</tr>
 	<?php 
 		foreach ($list as $pokemon) {
 			echo "<tr>";
 			echo "<th>$pokemon->nama</th>";
 			echo "<th>$pokemon->tipe</th>";
-			echo "<th><a href= >Edit</a> <a href= >Delete</a></th>";
+			echo "	<th>
+				<a href=".site_url('/pokemon/update_form').">Edit</a> 
+				<a href=".site_url('/pokemon/delete_action').">Delete</a> 
+				</th>";
 			echo "</tr>";
 		}
 	?>

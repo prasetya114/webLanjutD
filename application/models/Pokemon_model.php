@@ -15,6 +15,7 @@ class Pokemon_model extends CI_Model{
      */
     public function get_one($id){
         // TODO: Modif bagian ini
+        return $this->db->get_where('pokemon',array('id' => $id))->result();
     }
 
     /* Fungsi ini menginsertkan data ke dalam tabel pokemon.
@@ -24,6 +25,7 @@ class Pokemon_model extends CI_Model{
      */
     public function insert($data){
         // TODO: Modif bagian ini
+        $this->db->insert('pokemon', $data);
     }
 
     /* Fungsi ini mengupdate data ke dalam tabel pokemon yang memiliki id=$id.
@@ -33,11 +35,14 @@ class Pokemon_model extends CI_Model{
      */
     public function update($data, $id){
         // TODO: Modif bagian ini
+        $this->db->where('id', $id);
+        $this->db->update('pokemon', $data);
     }
 
     /* Fungsi ini menghapus satu record dari tabel pokemon yan memiliki id=$id*/
     public function delete($id){
         // TODO: Modif bagian ini
+        $this->db->delete('pokemon', array('id' => $id));
     }
 
 }

@@ -14,8 +14,8 @@
 			echo "<th>$pokemon->nama</th>";
 			echo "<th>$pokemon->tipe</th>";
 			echo "	<th>
-				<a href=".site_url('/pokemon/update_form').">Edit</a> 
-				<a href=".site_url('/pokemon/delete_action').">Delete</a> 
+				<a href=".site_url('/pokemon/update_form/'.$pokemon->id).">Edit</a> 
+				<a href=".site_url('/pokemon/delete_action/'.$pokemon->id).">Delete</a> 
 				</th>";
 			echo "</tr>";
 		}

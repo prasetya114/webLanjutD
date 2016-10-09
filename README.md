@@ -41,6 +41,6 @@
 
 * Fork repository ini
 * Tulis nama, nrp dan user name anda di list berikut
-    - nama, nrp, user name
+    - Fiqh Rizki Saputra, 141111058, Fiqih24
 * Kontribusi
 * Ajukan pull request

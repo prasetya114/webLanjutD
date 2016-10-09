@@ -10,11 +10,17 @@ class Pokemon extends CI_Controller{
     public function index(){
         // TODO: dapatkan hasil dari fungsi get_all di pokemon_model
         // TODO: load view pokemon_index, berikan data yang didapat dari fungsi get_all
+  
+        $result = $this->pokemon_model->get_all();
+        $data = array('result' => $result);
+        $this->load->view('pokemon_index', $data);
+    }
     }
 
     // URL : http://localhost/[directory]/index.php/pokemon/insert_form
     public function insert_form(){
         // TODO: load view pokemon_insert_form
+        $this->load->view('pokemon_insert_form'); 
     }
 
     // URL : http://localhost/[directory]/index.php/insert_action
@@ -29,6 +35,9 @@ class Pokemon extends CI_Controller{
     public function update_form($id){
         // TODO: panggil fungsi get_one di pokemon_model 
         // TODO: load view pokemon_update_form, berikan data yang didapat dari fungsi get_one
+        $result=$this->pokemon_model->get_one($id);
+        $data=array('result'=>$result);
+        $this->load->view('pokemon_update_form',$data);
     }
 
     // URL : http://localhost/[directory]/index.php/update_action/[id]
@@ -37,12 +46,15 @@ class Pokemon extends CI_Controller{
         $tipe = $this->input->post('tipe'); // dapatkan nilai inputan tipe
         // TODO: panggil fungsi update di pokemon_model
         // TODO: load view pokemon_update_action
+        
     }
 
     // URL : http://localhost/[directory]/index.php/delete/[id]
     public function delete_action($id){
         // TODO: panggil fungsi delete di pokemon_model
         // TODO: load view pokemon_delete
+        $this->pokemon_model->delete($id);
+        $this->load->view('pokemon_delete');
     }
 
 }
